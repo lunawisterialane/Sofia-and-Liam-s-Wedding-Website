@@ -3,6 +3,10 @@
   src: url('The_Bride_in_Hacienda.ttf');
 }
 
+.heading_box {
+    background-color: white;
+    background-opacity: 50%;
+}
 
 .heading {
     font-family: 'headingFont';
