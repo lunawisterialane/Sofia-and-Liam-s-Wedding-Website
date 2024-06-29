@@ -5,12 +5,9 @@
 
 .heading_box {
   background-color: rgba(255, 255, 255, 0.5);
-}
+  font-family: 'headingFont';
 }
 
-.heading {
-    font-family: 'headingFont';
-}
 
 body {
   background-image: url('IMG_2690.webp');
