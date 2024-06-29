@@ -3,7 +3,7 @@
   src: url('The_Bride_in_Hacienda.ttf');
 }
 
-.heading_box {
+.heading-box {
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 50px;
   color: #6b4b2d;
@@ -64,7 +64,22 @@
   }
 }
 
+.countdown-text {
+  text-align: center;
+}
+
+#countdown-timer {
+    background-color: rgba(107,75,43, 0.5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #FFF;
+}
 
 body {
   background-image: url('IMG_2690.webp');
+}
+
+.white-background{
+  background-color: rgba(255, 255, 255, 0.5);
 }
