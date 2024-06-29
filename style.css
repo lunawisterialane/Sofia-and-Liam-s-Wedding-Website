@@ -25,6 +25,11 @@
   font-size: 20px;
 }
 
+.topnav a.active {
+  background-color: #DB9E65;
+  color: white;
+}
+
 body {
   background-image: url('IMG_2690.webp');
 }
