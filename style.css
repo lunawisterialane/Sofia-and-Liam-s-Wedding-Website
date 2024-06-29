@@ -4,6 +4,10 @@
 }
 
 
-.heading {
+heading {
     font-family: 'headingFont';
+}
+
+body {
+  background-image: url("paper.gif");
 }
