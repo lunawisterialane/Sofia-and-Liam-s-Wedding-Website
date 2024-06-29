@@ -6,6 +6,9 @@
 .heading_box {
     background-color: white;
     background-opacity: 50%;
+}
+
+.heading {
     font-family: 'headingFont';
 }
 
