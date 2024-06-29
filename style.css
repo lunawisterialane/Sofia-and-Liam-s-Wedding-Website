@@ -26,6 +26,11 @@
   font-size: 20px;
 }
 
+.topnav a:hover {
+  background-color: #edcfb2;
+  color: white;
+}
+
 .topnav a.active {
   background-color: #DB9E65;
   color: white;
