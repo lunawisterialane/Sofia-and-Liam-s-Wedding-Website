@@ -4,79 +4,151 @@
     <meta charset="UTF-8">
     <title>Sofia and Liam's Wedding Website</title>
     <!-- CSS linkage -->
-<link rel="stylesheet" href="style.css">
-    <!-- CSS menu link -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
-    <!-- JS linkage -->
-<script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 50px; /* Icon size */
+            height: 50px; /* Icon size */
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gallery img:hover {
+            border-color: #ddd;
+        }
+        .selected-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .selected-image img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .selected-image .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <div class="white-background">
-  <header>
-   <div class='heading-box'>
-       <h1 id='heading'>Welcome</h1>
-    <div class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
-  <a href="#schedule">Schedule</a>
-  <a href="#contact">Contact</a>
-  <a href="#faq">FAQ</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-  <i class="fa fa-bars"></i> 
-</a>
-   </div>
+    <div class="white-background">
+        <header>
+            <div class='heading-box'>
+                <h1 id='heading'>Welcome</h1>
+                <div class="topnav" id="myTopnav">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#schedule">Schedule</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </div>
+        </header>
+        <div class="countdown-text">
+            <p>Count down the days with us:</p>
+        </div>
+        <p id="countdown-timer"></p>
+        <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Sep 11, 2025 11:00:00").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="countdown-timer"
+                document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown-timer").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
+        <div class="timeline">
+            <p class="timeline-text">Here is a timeline of our love story...</p>
+            <div class="container left">
+                <div class="content">
+                    <h2>September 12th 2021</h2>
+                    <p>Sofia's first message to Liam was "What are the names of your cats??". They got talking and the rest is history.</p>
+                    <img class="timeline-image" width="400px" src="timeline-met-photo.jpg" alt="Timeline Photo 1">
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>September 22nd 2021</h2>
+                    <p>Our first date at Mooboo Bubble Tea in Cardiff. Sofia made Liam walk around Cardiff and he frequently complains this was annoying. They settled on a bench in Alexandra Gardens to talk and Sofia breathed a sigh of relief when during their conversation, she found out Liam did not harbour any extreme right-wing views that would make dating a brown girl from Easton near impossible. She found him really interesting. They discussed tattoos, politics, and their family - not knowing they would one day become each others'.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>October 22nd 2021</h2>
+                    <p>Liam asked Sofia to be his girlfriend and the first "I love yous" were messaged over Whatsapp whilst Sofia was drunk at a drag night with her friend Maddie. Liam promised not to say it too much but he lied. Every day has been filled with "I love you" since this moment.</p>
+                    <div class="gallery">
+                        <img src="maddie-sof-drag.jpg" alt="Photo 1" class="gallery-item">
+                        <img src="first-i-love-you.jpg" alt="Photo 2" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>Placeholder Date</h2> <!-- Update with actual date -->
+                    <p>Event description.</p>
+                </div>
+            </div>
+        </div>
+        <div class="selected-image" id="selectedImageContainer">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <img src="" alt="Selected Image" id="selectedImage">
+        </div>
     </div>
-</header>
-<div class="countdown-text">
-<p>Count down the days with us:</p>
-</div>
-<p id="countdown-timer"></p>
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Sep 11, 2025 11:00:00").getTime();
+    <script>
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', event => {
+                document.getElementById('selectedImage').src = event.target.src;
+                document.getElementById('selectedImageContainer').style.display = 'flex';
+            });
+        });
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
-<div class="timeline">
-  <p class="timeline-text">Here is a timeline of our love story...</p>
-  <div class="first-message">
-    <div class="content">
-      <h2>September 12th 2021</h2>
-      <p>Sofia's first message to Liam was "What are the names of your cats??". They got talking and the rest is history.</p>
-      <img src="">
-    </div>
-  </div>
-  <div class="first-date">
-    <div class="content">
-      <h2>2016</h2>
-      <p>Lorem ipsum..</p>
-    </div>
-  </div>
-</div>
-
-</div> 
+        document.getElementById('closeBtn').addEventListener('click', () => {
+            document.getElementById('selectedImageContainer').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
