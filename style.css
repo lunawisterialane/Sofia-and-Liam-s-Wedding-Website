@@ -6,7 +6,7 @@
 .heading_box {
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 50px;
-  color: #DB9E65;
+  color: #6b4b2d;
 }
 
 #heading {
@@ -22,7 +22,7 @@
 .topnav a {
   float: left;
   display: block;
-  color: #DB9E65;
+  color: #6b4b2d;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -35,7 +35,7 @@
 }
 
 .topnav a.active {
-  background-color: #DB9E65;
+  background-color: #6b4b2d;
   color: white;
 }
 
