@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'headingFont';
-  src: url('https://github.com/lunawisterialane/Sofia-and-Liam-s-Wedding-Website/blob/e71f061ff2a508ed0804b85462808f895f7a119c/The_Bride_in%20Hacienda.ttf');
+  src: url('/The_Bride_in_Hacienda.ttf');
 }
 
 
@@ -9,5 +9,5 @@ heading {
 }
 
 body {
-  background-image: url("https://github.com/lunawisterialane/Sofia-and-Liam-s-Wedding-Website/blob/d523a40fa7c1ed9845146b693f67fff30ee48a5d/IMG_2690.webp");
+  background-image: url("/IMG_2690.webp");
 }
