@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'headingFont'
+  src: url('The Bride in Hacienda.ttf');
+}
+
+
+.heading {
+    font-family: 'headingFont';
+}
