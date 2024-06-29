@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'headingFont';
-  src: url('/The_Bride_in_Hacienda.ttf');
+  src: url('The_Bride_in_Hacienda.ttf');
 }
 
 
@@ -9,5 +9,5 @@
 }
 
 body {
-  background-image: url("/IMG_2690.webp");
+  background-image: url('IMG_2690.webp');
 }
