@@ -225,3 +225,34 @@ img.timeline-image {
     object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.thanks-for-reading {
+    text-align: center;
+    font-family: headingFont;
+}
+
+.welcome-title {
+    text-align: center;
+    font-family: headingFont;
+    color:#6b4b2d;
+    font-size: 100px;
+}
+
+.date-text {
+   text-align: center;
+}
+
+.contact-info-section {
+   text-align: center;
+   color:#6b4b2d;
+}
+
+.map-intro-text {
+  text-align: center;
+}
+
+#map {
+   height: 400px;
+   width: 400px;
+}
+

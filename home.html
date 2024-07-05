@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sofia and Liam's Wedding Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS linkage -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS and script for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xwE5hm7Wa+POCw5IzHxFxfGfUFlPrPpY8evny5TVy0I5W4iX2P+boJAGT6p3N5c8bJ5xAW25xSKN7VoxO3GhGQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-bG0i6Z8ytNHVjr0XG+gp7gR/Fnb5BO+is9uxS7hhVawVxrJcS9G5DzO3oCfl4ut6K4y3Q5SGYo5kBFk6p4Ogsg==" crossorigin=""></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 50px; /* Icon size */
+            height: 50px; /* Icon size */
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gallery img:hover {
+            border-color: #ddd;
+        }
+        .selected-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .selected-image img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .selected-image .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="white-background">
+        <header>
+            <div class='heading-box'>
+                <h1 id='heading'>Welcome</h1>
+                <div class="topnav" id="myTopnav">
+                    <a href="/home.html" class="active">Home</a>
+                    <a href="/schedule.html">Schedule</a>
+                    <a href="/contact.html">Contact</a>
+                    <a href="/faq.html">FAQ</a>
+                </div>
+            </div>
+        </header>
+        <div class="countdown-text">
+            <p>Count down the days with us:</p>
+            <p class="date-text"><br><br>September 10th 2025</p>
+        </div>
+        <p id="countdown-timer"></p>
+        <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Sep 10, 2025 13:00:00").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="countdown-timer"
+                document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown-timer").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
+        <p class="timeline-text">Here is a timeline of our love story... <br><br>(Click on the smaller photos to enlarge)</p>
+        <div class="timeline">    
+            <div class="container left">
+                <div class="content">
+                    <h2>September 12th 2021</h2>
+                    <p>Sofia's first message to Liam was "What are the names of your cats??". They got talking and the rest is history.</p>
+                    <img class="timeline-image" width="400px" src="timeline-met-photo.jpg" alt="Timeline Photo 1">
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>September 22nd 2021</h2>
+                    <p>Our first date at Mooboo Bubble Tea in Cardiff. Sofia made Liam walk around Cardiff and he frequently complains this was annoying. They settled on a bench in Alexandra Gardens to talk and Sofia breathed a sigh of relief when during their conversation, she found out Liam did not harbour any extreme right-wing views that would make dating a brown girl from Easton near impossible. She found him really interesting. They discussed tattoos, politics, and their family - not knowing they would one day become each others'.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>October 22nd 2021</h2>
+                    <p>Liam asked Sofia to be his girlfriend and the first "I love yous" were messaged over Whatsapp whilst Sofia was drunk at a drag night with her friend Maddie. Liam promised not to say it too much but he lied. Every day has been filled with "I love you" since this moment.</p>
+                    <div class="gallery">
+                        <img src="maddie-sof-drag.jpg" alt="Photo 1" class="gallery-item">
+                        <img src="first-i-love-you.jpg" alt="Photo 2" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>December 25th 2021</h2>
+                    <p>Their first Christmas together. Liam had bought a star for Sofia. Sofia made him a memory box from the last few months together, including letters, songs, and poems Sofia had wrote for him.</p>
+                    <img class="timeline-image" width="400px" src="star-gift.jpg" alt="Star gift">
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>January 4th 2022</h2>
+                    <p>Liam and Sofia spent Liam's birthday together at an Italian restaurant in Caerphilly. A surprise tart came out with a candle in it! The bus to Rhymney did not show up so Sofia booked a table last minute, saving the day.</p>
+                    <div class="gallery">
+                        <img src="Liam-bday.jpeg" alt="Photo 1" class="gallery-item">
+                        <img src="Liam-bday-us.jpeg" alt="Photo 2" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>March 13th to 18th 2022</h2> <!-- Update with actual date -->
+                    <p>Our first holiday was to Krakow where we stayed in a strange hotel but enjoyed the sights thoroughly. It's always a good week when you have McDonald's and play in a ballpit. They spent Sofia's birthday in Mr Pancake. Memories were made that day.</p>
+                      <div class="gallery">
+                        <img src="Krakow-us-together.jpeg" alt="Photo 1" class="gallery-item">
+                        <img src="Krakow-lock.jpeg" alt="Photo 2" class="gallery-item">
+                        <img src="Krakow-us-night.jpeg" alt="Photo 3" class="gallery-item">
+                        <img src="Krakow-scarf.jpeg" alt="Photo 4" class="gallery-item">
+                        <img src="Krakow-liam.jpeg" alt="Photo 5" class="gallery-item">
+                        <img src="Krakow-ball-pit.jpeg" alt="Photo 6" class="gallery-item">
+                        <img src="Krakow-blue-drink.jpeg" alt="Photo 7" class="gallery-item">
+                        <img src="Krakow-mr-pancake.jpeg" alt="Photo 8" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>April 23rd 2022</h2>
+                    <p>Quickly after they had met, they moved in together. They became a family unit: 2 people and 2 cats.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>October 22nd 2022</h2>
+                    <p>Their first anniversary.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>December 25th 2022</h2>
+                    <p>Liam bought Sofia 2 guitars for Christmas, named Starling and Iblis. One of the most thoughtful things anyone has ever done for Sofia.</p>
+                    <div class="gallery">
+                        <img src="starling.jpg" alt="Photo 1" class="gallery-item">
+                        <img src="iblis.jpg" alt="Photo 2" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>October 22nd 2023</h2>
+                    <p>Their second anniversary.</p>
+                    <div class="gallery">
+                        <img src="2nd-anniversary-us.jpg" alt="Photo 1" class="gallery-item">
+                        <img src="2nd-anniversary-food.jpg" alt="Photo 2" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>October 29th 2023</h2>
+                    <p>Their first pumpkin picking together with friends at Avon Valley Adventure Park.</p>
+                    <img class="timeline-image" width="400px" src="pumpkin-us.jpg" alt="The happy couple at Avon Valley">
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>October 31st 2023</h2>
+                    <p>Their first sober Halloween rave together.</p>
+                    <img class="timeline-image" width="400px" src="halloween-us.jpg" alt="The happy couple getting ready for the rave">
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>February 29th 2024</h2>
+                    <p>Sofia had planned a romantic evening together. First, a meal at the Butcher's Arms which provided a quality meal for the hungry pair. After the meal, they set off to the Brecon Observatory. Unfortunately, they got lost and were awaiting a response from the activity coordinator. The activity coordinator returned saying the weather was too snowy for the activity to go ahead. However, Sofia saw a moment on the side of the road to talk about the Engagement Ring Asterism. The couple had been looking at engagement rings prior to this. Sofia had a speech written up. One where she had to include a some words about letting her ramble as Liam did in fact try to interrupt. He said yes in the car and they returned home for nosecco and berries, letting friends and family know about the news.</p>
+                    <div class="gallery">
+                        <img src="engagement-us.jpg" alt="Photo 1" class="gallery-item">
+                        <img src="rings.jpg" alt="Photo 2" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="selected-image" id="selectedImageContainer">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <img src="" alt="Selected Image" id="selectedImage">
+        </div>
+        
+        <script>
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', event => {
+                    document.getElementById('selectedImage').src = event.target.src;
+                    document.getElementById('selectedImageContainer').style.display = 'flex';
+                });
+            });
+
+            document.getElementById('closeBtn').addEventListener('click', () => {
+                document.getElementById('selectedImageContainer').style.display = 'none';
+            });
+        </script>
+        
+        <p class="map-intro-text">Here is a map of all the places we have had memories.</p>
+        <div id="map"></div>
+        <p class="thanks-for-reading">Thank you for reading. Feel free to browse this website.</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var map = L.map('map').setView([51.505, -0.09], 13);
+        
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        });
+        </script>
+</body>
+</html>

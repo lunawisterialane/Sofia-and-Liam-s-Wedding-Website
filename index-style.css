@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'headingFont';
+  src: url('Precious.ttf');
+}
+
+
+body {
+  background-image: url('IMG_2690.webp');
+}
+
+.welcome-title {
+  text-align: center;
+  font-family: headingFont;
+  color:#6b4b2d;
+  font-size: 100px;
+}
+
+.white-background{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.enter-button {
+    padding: 10px 50px;
+    font-size: 16px;
+  }
+  
+  .enter-button:hover {
+    background-color: #6b4b2d;
+    color: white;
+  }
+  
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .white-background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .save-the-date-video {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
