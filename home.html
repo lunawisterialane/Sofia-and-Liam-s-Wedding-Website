@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS linkage -->
     <link rel="stylesheet" href="style.css">
-    <!-- CSS and script for map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xwE5hm7Wa+POCw5IzHxFxfGfUFlPrPpY8evny5TVy0I5W4iX2P+boJAGT6p3N5c8bJ5xAW25xSKN7VoxO3GhGQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-bG0i6Z8ytNHVjr0XG+gp7gR/Fnb5BO+is9uxS7hhVawVxrJcS9G5DzO3oCfl4ut6K4y3Q5SGYo5kBFk6p4Ogsg==" crossorigin=""></script>
-    <style>
+     <style>
         body {
             font-family: Arial, sans-serif;
         }
@@ -69,10 +66,10 @@
             <div class='heading-box'>
                 <h1 id='heading'>Welcome</h1>
                 <div class="topnav" id="myTopnav">
-                    <a href="/home.html" class="active">Home</a>
-                    <a href="/schedule.html">Schedule</a>
-                    <a href="/contact.html">Contact</a>
-                    <a href="/faq.html">FAQ</a>
+                    <a href="home.html" class="active">Home</a>
+                    <a href="schedule.html">Schedule</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="faq.html">FAQ</a>
                 </div>
             </div>
         </header>
@@ -244,20 +241,7 @@
                 document.getElementById('selectedImageContainer').style.display = 'none';
             });
         </script>
-        
-        <p class="map-intro-text">Here is a map of all the places we have had memories.</p>
-        <div id="map"></div>
         <p class="thanks-for-reading">Thank you for reading. Feel free to browse this website.</p>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var map = L.map('map').setView([51.505, -0.09], 13);
-        
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-        });
-        </script>
 </body>
 </html>
