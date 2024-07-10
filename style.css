@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'headingFont';
-  src: url('Precious.ttf');
+  src: url('Salmon.ttf');
 }
 
 .heading-box {
@@ -227,6 +227,7 @@ img.timeline-image {
 }
 
 .thanks-for-reading {
+    font-size: 40px;
     text-align: center;
     font-family: headingFont;
 }
@@ -251,8 +252,26 @@ img.timeline-image {
   text-align: center;
 }
 
-#map {
-   height: 400px;
-   width: 400px;
+.FAQ-questions {
+  color:#6b4b2d;
+  text-align: center;
 }
 
+.FAQ-answers {
+  text-align: center;
+}
+
+.maes-manor-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+iframe {
+    border: 0;
+    width: 600px;
+    height: 450px;
+}
+Explanation
