@@ -281,3 +281,10 @@ iframe {
    align-items: center;
    height: 450px;
 }
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
