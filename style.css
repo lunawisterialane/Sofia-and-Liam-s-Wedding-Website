@@ -291,6 +291,19 @@ iframe {
 
 /* Media Query for devices smaller than 768px (tablets and smaller screens) */
 @media (max-width: 768px) {
+
+  .topnav {
+      flex-direction: column; /* Stack the links vertically */
+      align-items: center;
+      gap: 10px; /* Add spacing between links */
+  }
+
+  .topnav a {
+      padding: 10px; /* Reduce padding for smaller screens */
+      font-size: 1em;
+  }
+}
+
   /* Adjust header */
   .heading-box {
       text-align: center;
@@ -298,19 +311,6 @@ iframe {
   }
   #heading {
       font-size: 1.5em;
-  }
-
-  /* Navigation Bar */
-  .topnav {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 10px;
-  }
-  .topnav a {
-      font-size: 1em;
-      padding: 10px;
-      text-align: center;
   }
 
   /* Countdown Timer and Timeline Text */
@@ -387,3 +387,4 @@ iframe {
       height: 60px;
   }
 }
+
