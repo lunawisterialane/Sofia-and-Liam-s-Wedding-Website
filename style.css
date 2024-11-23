@@ -288,3 +288,102 @@ iframe {
   justify-content: center;
   align-items: center;
 }
+
+/* Media Query for devices smaller than 768px (tablets and smaller screens) */
+@media (max-width: 768px) {
+  /* Adjust header */
+  .heading-box {
+      text-align: center;
+      padding: 10px;
+  }
+  #heading {
+      font-size: 1.5em;
+  }
+
+  /* Navigation Bar */
+  .topnav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+  }
+  .topnav a {
+      font-size: 1em;
+      padding: 10px;
+      text-align: center;
+  }
+
+  /* Countdown Timer and Timeline Text */
+  .countdown-text, .timeline-text {
+      text-align: center;
+      font-size: 1em;
+      padding: 10px;
+  }
+
+  /* Timeline Adjustments */
+  .timeline .container {
+      width: 100%; /* Full width for smaller screens */
+      text-align: center; /* Center-align text and content */
+      padding: 10px;
+  }
+
+  .timeline .content h2 {
+      font-size: 1.2em;
+  }
+
+  .timeline .content p {
+      font-size: 0.9em;
+      line-height: 1.4em;
+  }
+
+  .timeline-image {
+      width: 90%;
+      max-width: 400px;
+      margin: auto;
+  }
+
+  /* Gallery Images */
+  .gallery {
+      justify-content: center;
+  }
+  .gallery img {
+      width: 80px;
+      height: 80px;
+  }
+
+  /* Modal Image Viewer */
+  .selected-image img {
+      max-width: 100%;
+      max-height: 90%;
+  }
+
+  /* Map Section */
+  #map {
+      height: 300px;
+  }
+}
+
+/* Media Query for devices smaller than 480px (phones) */
+@media (max-width: 480px) {
+  #heading {
+      font-size: 1.2em;
+  }
+
+  .topnav a {
+      font-size: 0.9em;
+  }
+
+  .timeline .content h2 {
+      font-size: 1em;
+  }
+
+  .timeline .content p {
+      font-size: 0.8em;
+  }
+
+  /* Gallery Images */
+  .gallery img {
+      width: 60px;
+      height: 60px;
+  }
+}
