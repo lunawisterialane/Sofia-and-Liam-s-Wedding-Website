@@ -291,7 +291,6 @@ iframe {
 
 /* Media Query for devices smaller than 768px (tablets and smaller screens) */
 @media (max-width: 768px) {
-
   .topnav {
       flex-direction: column; /* Stack the links vertically */
       align-items: center;
